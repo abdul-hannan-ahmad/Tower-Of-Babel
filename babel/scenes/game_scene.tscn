@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bu7gkvj21bfic"]
+
+[ext_resource type="PackedScene" uid="uid://b0phdva2w7kf4" path="res://scenes/gamecontroller.tscn" id="2_acugg"]
+[ext_resource type="PackedScene" uid="uid://cge6tywkcfxrv" path="res://scenes/player.tscn" id="2_d4qw1"]
+[ext_resource type="Script" path="res://code/Camera2D.gd" id="3_52bqs"]
+[ext_resource type="Script" path="res://code/deathBorder.gd" id="4_6u1uw"]
+[ext_resource type="Texture2D" uid="uid://c7k17scvgt0y3" path="res://sprites/background.webp" id="5_xwgat"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kx8x"]
+size = Vector2(1183, 175)
+
+[node name="GameScene" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("2_d4qw1")]
+position = Vector2(603, 487)
+
+[node name="gamecontroller" parent="." instance=ExtResource("2_acugg")]
+hight = 600
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(608, 540)
+script = ExtResource("3_52bqs")
+
+[node name="Timer" type="Timer" parent="Camera2D"]
+one_shot = true
+
+[node name="deathBorder" type="Area2D" parent="Camera2D"]
+script = ExtResource("4_6u1uw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/deathBorder"]
+position = Vector2(6, 676)
+shape = SubResource("RectangleShape2D_0kx8x")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(40, 216)
+motion_mirroring = Vector2(0, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(568, 324)
+scale = Vector2(3.65714, 3.08571)
+texture = ExtResource("5_xwgat")
+
+[connection signal="body_entered" from="Camera2D/deathBorder" to="Camera2D/deathBorder" method="_on_body_entered"]
