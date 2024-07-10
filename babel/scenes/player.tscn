@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://cge6tywkcfxrv"]
+
+[ext_resource type="Script" path="res://code/player.gd" id="1_sbux4"]
+[ext_resource type="Texture2D" uid="uid://de7okjhlww240" path="res://sprites/image0.png" id="2_5durv"]
+[ext_resource type="AudioStream" uid="uid://6k8taw2blb4h" path="res://sounds/crash.wav" id="3_8wfp2"]
+[ext_resource type="AudioStream" uid="uid://p4hg45ibce4h" path="res://sounds/flap.wav" id="4_uge0j"]
+[ext_resource type="AudioStream" uid="uid://bqj356jdoajog" path="res://sounds/woosh.wav" id="5_gugx2"]
+[ext_resource type="AudioStream" uid="uid://cryja32hci77a" path="res://sounds/dash.wav" id="6_3ylvg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tv33f"]
+size = Vector2(59, 59)
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_sbux4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tv33f")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(7.99998, -21)
+scale = Vector2(0.0834704, 0.0820791)
+texture = ExtResource("2_5durv")
+
+[node name="coyote" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="crash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8wfp2")
+volume_db = 3.962
+pitch_scale = 0.73
+mix_target = 2
+
+[node name="wing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_uge0j")
+volume_db = -12.314
+
+[node name="dash" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_3ylvg")
+volume_db = 7.0
+
+[node name="jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_gugx2")
+volume_db = -6.933
+pitch_scale = 1.69

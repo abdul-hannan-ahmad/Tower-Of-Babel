@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://x6hg2aoxogy2"]
+
+[ext_resource type="PackedScene" uid="uid://cjhy4hifisys1" path="res://scenes/block.tscn" id="1_2kqir"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="block" parent="." instance=ExtResource("1_2kqir")]
+position = Vector2(649, 458)
+scale = Vector2(3.35205, 1.67835)
+
+[node name="block2" parent="." instance=ExtResource("1_2kqir")]
+position = Vector2(824, 295)
+scale = Vector2(1.62412, 0.746212)
+
+[node name="block3" parent="." instance=ExtResource("1_2kqir")]
+position = Vector2(291, 192)
+scale = Vector2(5.98576, 0.975402)
+
+[node name="block4" parent="." instance=ExtResource("1_2kqir")]
+position = Vector2(477, 321)
+scale = Vector2(1, 0.48)
+
+[node name="block5" parent="." instance=ExtResource("1_2kqir")]
+position = Vector2(560, 579)
+scale = Vector2(9.10577, 1.22825)
+
+[node name="block6" parent="." instance=ExtResource("1_2kqir")]
+position = Vector2(1004, 234)
+scale = Vector2(6.97127, 0.913654)
+
+[node name="block7" parent="." instance=ExtResource("1_2kqir")]
+position = Vector2(450, 91)
+scale = Vector2(1.16, 0.56)
+
+[node name="block8" parent="." instance=ExtResource("1_2kqir")]
+position = Vector2(851, 95)
+scale = Vector2(4.72, 1)
